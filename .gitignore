@@ -1,12 +1,12 @@
 # compiled files
 *.o
 *.a
-*.pyc
 
-# files generated automatically (cmake, doxygen...)
+# files generated automatically (cmake, doxygen, SAT-solver...)
 build/*
 Makefile
 doc/html/*
+*.dim
 
 # backup files
 *~

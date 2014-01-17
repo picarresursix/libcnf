@@ -9,7 +9,7 @@
 #include <iostream>
 #include <iomanip>
 
-#include "../include/libcnf.hpp"
+#include <libcnf.hpp>
 
 void test_VariableSet()
 {
