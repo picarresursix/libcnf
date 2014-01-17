@@ -13,7 +13,7 @@
 
 namespace cnf {
 
-    /** Provides an easy to state that a set of boolean variables
+    /** Provides an easy way to state that a set of boolean variables
      * correspond to the image of another set of boolean variables
      * by a Sbox.
      *

@@ -29,10 +29,16 @@
 #include "sbox.hpp"
 
 /**
- * This library provides two main functionnalities:
+ * This library provides an easy way to build crypto-oriented CNF
+ * formulas, solve them with an external SAT-solver and use the result 
+ * thus obtained.
+ * 
+ * Main functionnalities are:
  * + Building CNF formulas in an easy way.
  * + Solving the Formulas using an external SAT-solver and retrieving
  *   the corresponding variable assignment within the program.
+ * + Automated construction of parts of the CNF and automatic 
+ *   optimizations.
  *
  * All these functionnalities are provided by classes in the cnf
  * namespace.

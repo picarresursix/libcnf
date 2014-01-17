@@ -1,0 +1,15 @@
+# compiled files
+*.o
+*.a
+*.pyc
+
+# files generated automatically (cmake, doxygen...)
+build/*
+Makefile
+doc/html/*
+
+# backup files
+*~
+*#
+
+

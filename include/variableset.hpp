@@ -24,19 +24,19 @@ namespace cnf {
  * taking 3 values). Then you should use the following code to create
  * the corresponsing set of variable:
  *
- * ```
+ * <pre>
  * VariableSet v;
  * v.add_subset("x", {7, 3});
  * v.add_subset("y", {7, 3, 3});
- * ```
+ * </pre>
  *
  * In order to retrieve the index of x_0,0 and y_5,2,1, you then
  * simply need:
  *
- * ```
+ * <pre>
  * code_x_0_0 = v.var("x", {0, 0});
  * code_y_5_2_1 = v.var("y", {5, 2, 1});
- * ```
+ * </pre>
  *
  * Each variable subset (x and y in the previous example) is given an
  * a number when add_subset is called; here 0 for x and 1 for y. These
@@ -47,8 +47,8 @@ namespace cnf {
  *
  * Each variable subset is allocated an interval of strictly positive
  * integers. Here, x has [1, 21] (7*3 = 21) and y has [22, 84]
- * (7*3*3+21 = 84). A hypothetical third subset would then start at
- * 84. To allow a fast computation of the index of each variable, the
+ * (7*3*3+21 = 84). A hypothetical third subset would then start at 84.
+ * To allow a fast computation of the index of each variable, the
  * `subset_cumulated_sizes` vector stores at position `i` the sum of
  * the sizes of the subsets of indices smaller than `i`. Here, it
  * would contain: [1, 22, 85].
@@ -88,7 +88,8 @@ namespace cnf {
         std::map<long int, long int> var_equalities;
         
     public:
-        /** Methods to build a variable set.*/
+        /** @name Construction
+         *  Methods to build a variable set.*/
         ///@{
         
         /** Builds an empty variable set. */
@@ -109,7 +110,8 @@ namespace cnf {
         std::string add_subset(std::initializer_list<unsigned int > dim);
 
         ///@}
-        /** Accessing the variables' codes. */
+        /** @name Variables' codes 
+         * Accessing the variables' codes. */
         ///@{
         
         /** Returns the code of the variable wanted, i.e. with the
@@ -141,7 +143,8 @@ namespace cnf {
         void add_var_equality(long int x1, long int x2);
         
         ///@}
-        /** Assigning the variables and using the result. */
+        /** @name Assignment 
+         * Assigning the variables and using the result. */
         ///@{
              
         /** Parses a DIMACS file and Returns true if the given stream
@@ -155,18 +158,17 @@ namespace cnf {
          * Note that the VariableSet instance's must be set within the
          * program. For instance, the following fails and throws a
          * std::logic_error exception:
-         *
-         * ```
+         * <pre>
          * VariableSet v;
          * v.parse_dimacs(&some_stream);
-         * ```
+         * </pre>
          * 
          * but this works:
-         * ```
+         * <pre>
          * VariableSet v;
          * v.add_subset("x", {10, 10});
          * v.parse_dimacs(&some_stream);
-         * ```
+         * </pre>
          *
          * @throw std::logic_error if the VariableSet instance
          * contains no subset.
@@ -200,15 +202,18 @@ namespace cnf {
         uint32_t little_endian(std::vector<long int> vars);
         
         ///@}
-        /** Accessing data about the variable set */
+        /** @name Retrieving data
+         * Accessing data about the variable set */
         ///@{
                     
         /** Prints on stdout the list of the subsets, their indices
          * and their dimensions.
          *
          * Sample output:
+         * <pre>
          * y 1 { 7 3 3}
          * x 0 { 7 3}
+         * </pre>
          */
         void print_list_subsets();
 
@@ -220,11 +225,11 @@ namespace cnf {
          * with the given name.
          *
          * Example:
-         * ```
+         * <pre>
          * v.add_subset("x", 7, 3);
          * i = v.subset_index_bound(0)
          * j = v.subset_index_bound(1)
-         * ```
+         * </pre>
          *
          * Here, i=7, j=3.
          *

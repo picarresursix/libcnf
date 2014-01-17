@@ -47,9 +47,13 @@ namespace cnf {
 
         /** Adds closes enforcing that the xor of the three literals
          * given is equal to zero where true is 1 and false is 0:
-         *
-         * (no(v1) or v2 or v3) and (v1 or no(v2) or v3) ...
-         * and (v1 or v2 or no(v3)) and (no(v1) or no(v2) or no(v3))
+         * <pre>
+         *     (no(v1) or v2 or v3)
+         * and (v1 or no(v2) or v3) 
+         * and ...
+         * and (v1 or v2 or no(v3)) 
+         * and (no(v1) or no(v2) or no(v3))
+         * </pre>
          * */
         void add_xor(long int v1, long int v2, long int v3);
 
